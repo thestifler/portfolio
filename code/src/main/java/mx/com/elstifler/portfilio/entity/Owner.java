@@ -45,6 +45,9 @@ public class Owner {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "owner",cascade = CascadeType.ALL)
     private List<OwnerExperience> ownerExperience;
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "owner",cascade = CascadeType.ALL)
+    private List<OwnerLink> ownerLinks;
+
 
 
 

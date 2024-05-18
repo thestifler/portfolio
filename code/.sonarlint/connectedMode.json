@@ -1,0 +1,4 @@
+{
+    "sonarQubeUri": "http://localhost:9000",
+    "projectKey": "mx.com.elstifler.portfolio"
+}
