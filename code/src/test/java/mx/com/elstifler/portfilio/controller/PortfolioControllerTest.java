@@ -21,6 +21,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import mx.com.elstifler.portfilio.entity.Owner;
 import mx.com.elstifler.portfilio.response.ResponseSuccessful;
+import mx.com.elstifler.portfilio.service.PortfolioPdfService;
 import mx.com.elstifler.portfilio.service.PortfolioService;
 
 @SpringBootTest
@@ -32,6 +33,8 @@ class PortfolioControllerTest {
     private MockMvc mockMvc;
     @MockBean
     private PortfolioService portfolioService;
+    @MockBean
+    private PortfolioPdfService portfolioPdfService;
     @InjectMocks
     private PortfolioController portfolioController;
     @Mock
@@ -52,7 +55,7 @@ class PortfolioControllerTest {
         portfolioService = mock(PortfolioService.class);
         when(portfolioService.getOwnerbyId(id)).thenReturn(owner);
 
-        portfolioController = new PortfolioController(portfolioService);
+        portfolioController = new PortfolioController(portfolioService,portfolioPdfService);
 
         ResponseEntity<ResponseSuccessful<Owner>> responseEntity= portfolioController.getOwnerById(id);
 
