@@ -1,6 +1,8 @@
 package mx.com.elstifler.portfilio.entity;
 
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -17,7 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "owner_skill")
+@Table(name = "owner_skills")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,9 +27,9 @@ public class OwnerSkill {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "owner_skill_id")
-    private Long ownerSkillId;
-    @Column(name="owner_skill_name")
+    @Column(name = "skill_id")
+    private UUID ownerSkillId;
+    @Column(name="skill_name")
     private String ownerSkillName;
 
     @ManyToOne(fetch = FetchType.LAZY)

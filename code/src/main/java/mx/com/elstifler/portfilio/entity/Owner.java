@@ -1,6 +1,7 @@
 package mx.com.elstifler.portfilio.entity;
 
 import java.util.List;
+import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -16,7 +17,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "owner")
+@Table(name = "owners")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,18 +25,18 @@ public class Owner {
     @Id
     @Column(name = "owner_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ownerId;
-    @Column(name = "owner_name")
+    private UUID ownerId;
+    @Column(name = "name")
     private String ownerName;
-    @Column(name = "owner_lastname")
+    @Column(name = "lastname")
     private String ownerLastName;
-    @Column(name = "owner_position")
+    @Column(name = "position")
     private String ownerPosition;
-    @Column(name = "owner_description")
+    @Column(name = "description")
     private String ownerDescription;
-    @Column(name = "owner_about_me")
+    @Column(name = "about_me")
     private String ownerAboutMe;
-    @Column(name = "owner_photo")
+    @Column(name = "photo")
     private String ownerPhoto;
 
 

@@ -1,6 +1,7 @@
 package mx.com.elstifler.portfilio.entity;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,14 +19,14 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "project")
+@Table(name = "projects")
 @Data
 public class OwnerProject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "project_id")
-    private Long ownerProjectId;
+    private UUID ownerProjectId;
     @Column(name = "project_name")
     private String ownerProjectName;
     @Column(name = "project_description")

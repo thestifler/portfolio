@@ -1,5 +1,7 @@
 package mx.com.elstifler.portfilio.controller;
 
+import java.util.UUID;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +23,7 @@ public class PortfolioController {
         this.portfolioService=portfolioService;
     }
     @GetMapping("/owners/{ownerId}")
-    public ResponseEntity<ResponseSuccessful<Owner>> getOwnerById(@PathVariable Long ownerId){
+    public ResponseEntity<ResponseSuccessful<Owner>> getOwnerById(@PathVariable UUID ownerId){
         Owner owner = portfolioService.getOwnerbyId(ownerId);
         ResponseSuccessful<Owner> responseSuccessful= new ResponseSuccessful<>("200", "proccess successfuly", owner);
         return responseSuccessful.createResponse(HttpStatus.OK);

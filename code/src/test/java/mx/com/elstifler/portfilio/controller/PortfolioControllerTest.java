@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.UUID;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -45,7 +47,8 @@ class PortfolioControllerTest {
     @Test
     void getOwnerByIdTest(){
 
-        Long id=1L;
+        UUID id=UUID.fromString("6407a4f1-d500-4d76-97fc-8de0c90cd54f");
+        
         portfolioService = mock(PortfolioService.class);
         when(portfolioService.getOwnerbyId(id)).thenReturn(owner);
 

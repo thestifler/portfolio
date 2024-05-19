@@ -16,25 +16,20 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "owner_links")
+@Table(name = "owner_experience_details")
 @Data
-public class OwnerLink {
+public class OwnerExperienceDetail {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "link_id")
-    private UUID ownerLinkId;
-    @Column(name = "link_url")
-    private String ownerLinkUrl;
-    @Column(name = "link_name")
-    private String ownerLinkName;
-    @Column(name = "link_photo")
-    private String ownerLinkPhoto;
-
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "experience_detail_id")
+    private UUID ownerExperienceDetailId;
+    @Column(name = "experience_detail_description")
+    private String ownerExperienceDetailDescription;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ownerId",nullable = false)
+    @JoinColumn(name = "experience_id")
     @JsonIgnore
-    private Owner owner;
+    private OwnerExperience ownerExperience;
 }

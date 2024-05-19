@@ -1,7 +1,9 @@
 package mx.com.elstifler.portfilio.service;
 
+import java.util.UUID;
+
 import mx.com.elstifler.portfilio.entity.Owner;
 
 public interface OwnerService {
-    Owner findOwnerById(Long ownerId);
+    Owner findOwnerById(UUID ownerId);
 }

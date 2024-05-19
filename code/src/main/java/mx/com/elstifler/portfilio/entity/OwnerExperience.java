@@ -2,6 +2,7 @@ package mx.com.elstifler.portfilio.entity;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,20 +20,20 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "owner_experience")
+@Table(name = "owner_experiences")
 @Data
 public class OwnerExperience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "owner_experience_id")
-    private Long ownerExperienceId;
-    @Column(name = "owner_experience_name")
+    @Column(name = "experience_id")
+    private UUID ownerExperienceId;
+    @Column(name = "experience_name")
     private String ownerExperienceName;
-    @Column(name = "owner_experience_description")
+    @Column(name = "experience_description")
     private String ownerExperienceDescription;
-    @Column(name = "owner_experience_initial_date")
+    @Column(name = "experience_initial_date")
     private Date ownerExpereinceInitialDate;
-    @Column(name = "owner_experience_end_date")
+    @Column(name = "experience_end_date")
     private Date ownerExpereinceEndDate;
     
 
@@ -43,4 +44,6 @@ public class OwnerExperience {
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "ownerExperience",cascade = CascadeType.ALL)
     private List<OwnerExperienceSkill> ownerExperienceSkills;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "ownerExperience",cascade = CascadeType.ALL)
+    private List<OwnerExperienceDetail> ownerExperienceDetails;
 }

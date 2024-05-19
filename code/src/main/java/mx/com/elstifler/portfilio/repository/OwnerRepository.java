@@ -1,5 +1,7 @@
 package mx.com.elstifler.portfilio.repository;
 
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,5 +13,5 @@ public interface OwnerRepository  extends JpaRepository<Owner,Long>{
 
 
     @Query("SELECT t FROM Owner t WHERE t.ownerId= :ownerId ")
-    Owner findOwnerById(@Param("ownerId") Long ownerId);
+    Owner findOwnerById(@Param("ownerId") UUID ownerId);
 }

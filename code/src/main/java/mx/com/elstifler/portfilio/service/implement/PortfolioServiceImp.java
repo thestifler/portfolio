@@ -1,5 +1,7 @@
 package mx.com.elstifler.portfilio.service.implement;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
 import mx.com.elstifler.portfilio.entity.Owner;
@@ -14,7 +16,7 @@ public class PortfolioServiceImp implements PortfolioService{
         this.ownerServiceImp=ownerServiceImp;
     }
     @Override
-    public Owner getOwnerbyId(Long ownerId) {
+    public Owner getOwnerbyId(UUID ownerId) {
          return ownerServiceImp.findOwnerById(ownerId);
     }
 }

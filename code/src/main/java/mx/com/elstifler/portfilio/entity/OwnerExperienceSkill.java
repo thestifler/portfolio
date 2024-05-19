@@ -1,5 +1,7 @@
 package mx.com.elstifler.portfilio.entity;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -14,20 +16,20 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "owner_experience_skill")
+@Table(name = "owner_experience_skills")
 @Data
 public class OwnerExperienceSkill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "owner_experience_skill_id")
-    private Long ownerExperienceSkillId;
-    @Column(name = "owner_experience_skill_name")
+    @Column(name = "experience_skill_id")
+    private UUID ownerExperienceSkillId;
+    @Column(name = "experience_skill_name")
     private String ownerExperienceSkillName;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ownerExperienceId",nullable = false)
+    @JoinColumn(name = "ExperienceId",nullable = false)
     @JsonIgnore
     private OwnerExperience ownerExperience;
 }
